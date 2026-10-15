@@ -1,0 +1,26 @@
+TOOLCAVE — ANDROID / GOOGLE PLAY RELEASE GUIDE
+==============================================
+
+Important: This ZIP is a responsive installable web app (PWA), not yet a signed Android APK/AAB. Google Play does not accept an HTML file by itself. A Play Store release needs an Android package, signing, store listing, and policy review. Approval is not guaranteed.
+
+RECOMMENDED ROUTE FOR A BEGINNER: PWA -> ANDROID PACKAGE
+1. Publish this folder to an HTTPS static host such as Cloudflare Pages. No backend is required.
+2. Open the live HTTPS URL on your phone and test every tool.
+3. Use PWABuilder (pwabuilder.com) to inspect the live PWA and follow its Android/TWA packaging flow. Use the current instructions shown by PWABuilder; their UI can change.
+4. Follow the package tool's steps for the Android package and Digital Asset Links verification. This commonly involves hosting an assetlinks.json file on your domain and matching the signing certificate fingerprint.
+5. Create a Google Play Console developer account using your own/guardian-supported account as applicable, and follow the current account verification and testing requirements shown in Play Console.
+6. Prepare store listing: app name, short/full descriptions, screenshots, app icon, privacy policy URL, Data safety answers, content rating, target audience, and any required testing track.
+7. Upload the generated Android App Bundle (.aab), complete the declarations truthfully, run the required tests, and submit for review.
+
+PRIVACY POLICY REMINDER
+Even though this build does not require an account or send tool input to an AI/backend, the Password Vault stores encrypted entries locally on the user's device. Your published privacy policy and Play Console Data safety answers must accurately describe the app and any packaging/analytics SDKs you add. Do not claim independent security certification.
+
+BEFORE YOU SUBMIT
+- Verify all 25 tools on real Android devices.
+- Test offline behavior after first load.
+- Test the vault and encrypted backup import/export; explain that losing the master password means the vault cannot be recovered.
+- Ensure every store screenshot matches the real app.
+- Confirm the current Google Play policy and testing requirements. These can change.
+- Never put secret API keys in the HTML (this app does not need one).
+
+If you only want an installable app on your own phone, you can use the browser's "Add to Home screen" option after HTTPS hosting; that does not publish it on Google Play.

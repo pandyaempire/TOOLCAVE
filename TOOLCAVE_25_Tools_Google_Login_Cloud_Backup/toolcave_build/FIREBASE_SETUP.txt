@@ -1,0 +1,25 @@
+TOOLCAVE — GOOGLE SIGN-IN + ENCRYPTED CLOUD VAULT BACKUP
+
+IMPORTANT
+- The 25 local tools work without an AI API or custom backend.
+- Google sign-in and cloud backup need a Firebase project configured once.
+- The Firebase web config goes in firebase-config.js. It is client config, not a password/secret.
+- Password vault data is encrypted in the browser before upload. The master password is never uploaded. Cloud backup cannot decrypt the vault without the master password.
+- Firebase login/cloud sync requires internet. Local tools still work offline after the app assets are cached.
+- Never put passwords or API keys into this project or send them in chat.
+
+SETUP STEPS
+1. Open https://console.firebase.google.com/ and create a Firebase project named TOOLCAVE.
+2. In Project settings > General, add a Web App and copy its config values into firebase-config.js, replacing every PASTE_ placeholder.
+3. Go to Authentication > Sign-in method > Google and enable Google sign-in. Choose a support email and save.
+4. Go to Authentication > Settings > Authorized domains and add the exact domain where you will host TOOLCAVE. For localhost testing, use localhost.
+5. Create a Cloud Firestore database.
+6. Open FIRESTORE_RULES.txt and publish those rules in Firestore > Rules. Do not use test mode for production.
+7. Upload the complete folder to a static host over HTTPS. Ensure index.html, firebase-config.js, manifest.webmanifest, sw.js and icon.svg stay in the same folder.
+8. Open the hosted website and test Google sign-in. Sign in, open Password Vault, create/unlock it, then use Upload encrypted backup to cloud. On another device, sign into the same Google account and use Restore encrypted backup from cloud; unlock using the same master password.
+
+COST / SAFETY
+Firebase has plan quotas and features can change; check the current Firebase console. Set budget alerts if available and ask a parent/guardian to help with account setup if needed. Never enable public Firestore reads/writes. Google sign-in does not automatically sync the vault; use the explicit encrypted backup buttons.
+
+PLAY STORE NOTE
+This ZIP is a static web app/PWA starter, not a signed Android App Bundle. For Play Store release you still need an Android wrapper/build, app signing, policy checks, and testing on real devices. Do not claim the app is published until Google approves it.
